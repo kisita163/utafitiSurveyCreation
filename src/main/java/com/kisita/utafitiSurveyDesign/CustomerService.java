@@ -1,4 +1,4 @@
-package com.vaadin.starter.skeleton;
+package com.kisita.utafitiSurveyDesign;
 
 import java.util.ArrayList;
 import java.util.Collections;

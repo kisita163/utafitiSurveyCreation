@@ -1,4 +1,4 @@
-package com.vaadin.starter.skeleton;
+package com.kisita.utafitiSurveyDesign;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -18,12 +18,11 @@ import com.vaadin.flow.router.Route;
 public class MainView extends VerticalLayout {
 
     private CustomerService service = CustomerService.getInstance();
-    private Grid<Customer> grid = new Grid<>();
-    private TextField filterText = new TextField();
-    private CustomerForm form = new CustomerForm(this);
+    private Grid<Question> grid  = new Grid<>();
+    private QuestionForm form    = new QuestionForm(this);
 
     public MainView() {
-        filterText.setPlaceholder("Filter by name...");
+        /*filterText.setPlaceholder("Filter by name...");
         filterText.setValueChangeMode(ValueChangeMode.EAGER);
         filterText.addValueChangeListener(e -> updateList());
         Button clearFilterTextBtn = new Button(
@@ -56,8 +55,16 @@ public class MainView extends VerticalLayout {
 
         grid.asSingleSelect().addValueChangeListener(event -> {
                 form.setCustomer(event.getValue());
-        });
-
+        });*/
+    	
+        grid.addColumn(Question::getQuestion).setHeader("Questions");
+        HorizontalLayout main = new HorizontalLayout(form);
+        main.setAlignItems(Alignment.START);
+        main.setSizeFull();
+        
+        add(main);
+        setHeight("100vh");
+       
     }
 
     public void updateList() {
@@ -65,6 +72,6 @@ public class MainView extends VerticalLayout {
          * Note that filterText.getValue() might return null; in this case, the backend
          * takes care of it for us
          */
-        grid.setItems(service.findAll(filterText.getValue()));
+        //grid.setItems(service.findAll(filterText.getValue()));
     }
 }

@@ -1,4 +1,4 @@
-package com.vaadin.starter.skeleton;
+package com.kisita.utafitiSurveyDesign;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -18,7 +18,7 @@ public class Customer implements Serializable, Cloneable {
 
 	private LocalDate birthDate;
 
-	private com.vaadin.starter.skeleton.CustomerStatus status;
+	private com.kisita.utafitiSurveyDesign.CustomerStatus status;
 
 	private String email = "";
 
